@@ -209,55 +209,25 @@ switch ($role) {
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link" href="home.php">
                             <i class="bi bi-speedometer2"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person"></i> Profile
-                        </a>
-                    </li>
-                    <?php if ($role === 'admin'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-people"></i> Users
+                        <a class="nav-link" href="courses.php">
+                            <i class="bi bi-book"></i> Courses
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="departments.php?user_id=<?= $user_id ?>&role=<?= $role ?>">
+                        <a class="nav-link" href="departments.php">
                             <i class="bi bi-building"></i> Departments
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="courses.php?user_id=<?= $user_id ?>&role=<?= $role ?>">
-                            <i class="bi bi-book"></i> Courses
+                        <a class="nav-link" href="instructor.php">
+                            <i class="bi bi-people"></i> Instructors
                         </a>
                     </li>
-                    <?php elseif ($role === 'instructor'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-journal-text"></i> My Courses
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-calendar-check"></i> Attendance
-                        </a>
-                    </li>
-                    <?php elseif ($role === 'student'): ?>
-                        <li class="nav-item">
-                                <a class="nav-link" href="courses.php?user_id=<?= $user_id ?>&role=<?= $role ?>">
-                                    <i class="bi bi-journal-bookmark"></i> My Courses
-                                </a>
-                            </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-card-checklist"></i> Grades
-                        </a>
-                    </li>
-                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">
                             <i class="bi bi-box-arrow-right"></i> Logout

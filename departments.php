@@ -2,12 +2,6 @@
 session_start();
 require 'db.php';
 
-// Check if user is logged in and is admin
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header('Location: login.php');
-    exit;
-}
-
 // Fetch user info
 $user_id = $_SESSION['user_id'];
 $user_name = 'Admin'; // Default name
@@ -206,7 +200,7 @@ $departments = $stmt->fetchAll();
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">
+                        <a class="nav-link" href="home.php">
                             <i class="bi bi-speedometer2"></i> Dashboard
                         </a>
                     </li>
@@ -221,7 +215,7 @@ $departments = $stmt->fetchAll();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="instructor.php">
                             <i class="bi bi-people"></i> Instructors
                         </a>
                     </li>

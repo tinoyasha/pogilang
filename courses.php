@@ -2,12 +2,6 @@
 session_start();
 require 'db.php';
 
-// Check if user is logged in and is admin
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
-    header('Location: login.php');
-    exit;
-}
-
 // Fetch user info
 $user_id = $_SESSION['user_id'];
 $user_name = 'Admin'; // Default name
@@ -118,9 +112,40 @@ $instructors = $pdo->query("SELECT * FROM instructors ORDER BY first_name, last_
             color: white;
             transition: all 0.3s;
         }
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            border-radius: 0.35rem;
+        }
         
+        .sidebar .nav-link:hover {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar .nav-link.active {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 0.5rem;
+        }
         /* ... include all your existing styles ... */
+        .user-profile {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
         
+        .user-profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+        }
         .form-container {
             background-color: white;
             border-radius: 0.35rem;
@@ -146,7 +171,7 @@ $instructors = $pdo->query("SELECT * FROM instructors ORDER BY first_name, last_
                 </div>
                 <ul class="nav flex-column ">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="dashboard.php">
+                        <a class="nav-link text-white" href="home.php">
                             <i class="bi bi-speedometer2"></i> Dashboard
                         </a>
                     </li>
@@ -156,12 +181,12 @@ $instructors = $pdo->query("SELECT * FROM instructors ORDER BY first_name, last_
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
+                        <a class="nav-link text-white" href="departments.php">
                             <i class="bi bi-building"></i> Departments
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
+                        <a class="nav-link text-white" href="instructor.php">
                             <i class="bi bi-people"></i> Instructors
                         </a>
                     </li>
